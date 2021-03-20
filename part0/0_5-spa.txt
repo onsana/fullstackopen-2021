@@ -1,0 +1,21 @@
+Create a diagram depicting the situation where
+the user creates a new note on page https://studies.cs.helsinki.fi/exampleapp/notes 
+by writing something into the text field and clicking the submit button.
+
+title 0.4 New note
+
+note over Browser: User submit new note
+Browser->Server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+Server->Browser: Status Code 302 Found, URL redirect
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+Server->Browser: HTML code
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Server->Browser: main.css
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+Server->Browser: main.js
+note over Browser:
+main.js requests data.json
+end note
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Server->Browser: [{content: "Test added new note", date: "2021-03-20T09:00:13.651Z"}, ...]
+note over Browser: event handler renders notes

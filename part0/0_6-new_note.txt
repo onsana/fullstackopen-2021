@@ -1,0 +1,9 @@
+title 0.6 New note
+
+note over Browser: User submits new note
+note over Browser
+Browser sends JSON-data to server in POST request
+end note
+Browser->Server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+Server->Browser: HTTP Status 201 Created ({"message":"note created"})
